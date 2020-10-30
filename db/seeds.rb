@@ -24,8 +24,15 @@ Skill.create(name: "painting", category: "visual arts", description: Faker::Comp
 Skill.create(name: Faker::Job.key_skill, category: Faker::Job.field, description: Faker::Company.catch_phrase, signed_up: false, video_url: Faker::Company.logo)
 Skill.create(name: Faker::Job.key_skill, category: Faker::Job.field, description: Faker::Company.catch_phrase, signed_up: false, video_url: Faker::Company.logo)
 Skill.create(name: Faker::Job.key_skill, category: Faker::Job.field, description: Faker::Company.catch_phrase, signed_up: false, video_url: Faker::Company.logo)
+Skill.create(name: Faker::Job.key_skill, category: Faker::Job.field, description: Faker::Company.catch_phrase, signed_up: false, video_url: Faker::Company.logo)
+Skill.create(name: Faker::Job.key_skill, category: Faker::Job.field, description: Faker::Company.catch_phrase, signed_up: false, video_url: Faker::Company.logo)
+Skill.create(name: Faker::Job.key_skill, category: Faker::Job.field, description: Faker::Company.catch_phrase, signed_up: false, video_url: Faker::Company.logo)
+Skill.create(name: Faker::Job.key_skill, category: Faker::Job.field, description: Faker::Company.catch_phrase, signed_up: false, video_url: Faker::Company.logo)
 
 UserSkill.create(user_id: User.first.id, skill_id: Skill.first.id)
+UserSkill.create(user_id: User.first.id, skill_id: Skill.third.id)
+UserSkill.create(user_id: User.first.id, skill_id: Skill.fourth.id)
+UserSkill.create(user_id: User.first.id, skill_id: Skill.fifth.id)
 UserSkill.create(user_id: User.second.id, skill_id: Skill.second.id)
 
 Lesson.create(date: "10-27-2020", description: "violin lesson for Bob", is_completed: false, provider_id: User.first.id, receiver_id: User.second.id, user_skill_id: UserSkill.first.id)

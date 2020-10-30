@@ -1,7 +1,7 @@
 require 'jwt'
 
 class UsersController < ApplicationController
-    wrap_parameters :user, include: [:username, :password, :first_name, :last_name, :email, :points, :location, :image_url]
+    wrap_parameters :user, include: [:username, :password, :first_name, :last_name, :email, :points, :location, :image_url, :created_at]
 
     def index
         @users = User.all 
@@ -9,17 +9,17 @@ class UsersController < ApplicationController
     end
 
     def show
-        # @user = User.find(params[:id])
-        # render json: @user
+        @user = User.find(params[:id])
+        render json: @user
 
-        token = request.headers[:Authorization].split(' ')[1]
-        decoded_token = JWT.decode(token, 'my$ecretK3y', true, { algorithm: 'HS256' })
+        # token = request.headers[:Authorization].split(' ')[1]
+        # decoded_token = JWT.decode(token, 'my$ecretK3y', true, { algorithm: 'HS256' })
 
-        user_id = decoded_token[0]['user_id']
+        # user_id = decoded_token[0]['user_id']
 
-        user = User.find(user_id)
+        # user = User.find(user_id)
 
-        render json: { user: user }
+        # render json: { user: user }
     end
 
     def login
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
         if user && user.authenticate(params[:password])
             payload = {user_id: user.id}
             token = JWT.encode(payload, 'my$ecretK3y', 'HS256')
-            render json: { user: user, token: token }
+            render json: {user: UserSerializer.new(user), token: token}
                 else
           render json: { error: 'Invalid username or password.'}
         end
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
 
         user = User.find(user_id)
 
-        render json: { user: user }
+        render json: {user: UserSerializer.new(user)}
       end
 
       def create
@@ -74,7 +74,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:username, :password, :first_name, :last_name, :email, :points, :location, :image_url)
+        params.require(:user).permit(:username, :password, :first_name, :last_name, :email, :points, :location, :image_url, :created_at)
     end
 
 end

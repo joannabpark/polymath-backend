@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :lessons
   resources :skills
   resources :users
+  resources :user_skills
 
   post '/users/login', to: 'users#login'
   get '/current_session', to: 'users#current_session'
