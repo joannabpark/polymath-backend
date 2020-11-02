@@ -58,11 +58,8 @@ class UsersController < ApplicationController
 
     def update
         @user = User.find(params[:id])
-        if @user.update
-            render json: @user
-        else    
-            render json: @user.errors
-        end
+         @user.update(user_params)
+         render json: @user
     end
 
     def destroy

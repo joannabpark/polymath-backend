@@ -21,7 +21,7 @@ class SkillsController < ApplicationController
 
     def update
         @skill = Skill.find(params[:id])
-        @skill.update(note_params)
+        @skill.update(skill_params)
         render json: @skill
     end
 
@@ -34,7 +34,7 @@ class SkillsController < ApplicationController
     private
 
     def skill_params
-        params.require(:note).permit(:name, :category, :description, :signed_up, :video_url)
+        params.require(:skill).permit(:name, :category, :description, :signed_up, :video_url)
     end
 
 end

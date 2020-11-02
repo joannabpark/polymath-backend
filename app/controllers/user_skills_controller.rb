@@ -5,6 +5,11 @@ class UserSkillsController < ApplicationController
         render json: @user_skills
     end
 
+    def show
+        @user_skill = Userkill.find(params[:id])
+        render json: @user_skill
+    end
+
     def create
         @user_skill = UserSkill.new(user_skill_params)
         if @user_skill.save
