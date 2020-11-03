@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_27_204309) do
+ActiveRecord::Schema.define(version: 2020_11_02_232912) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,14 +24,15 @@ ActiveRecord::Schema.define(version: 2020_10_27_204309) do
   end
 
   create_table "lessons", force: :cascade do |t|
-    t.string "date"
     t.string "description"
     t.boolean "is_completed"
     t.integer "provider_id"
     t.integer "receiver_id"
-    t.integer "user_skill_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "skill_id"
+    t.string "skill_name"
+    t.datetime "date"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -50,13 +51,7 @@ ActiveRecord::Schema.define(version: 2020_10_27_204309) do
     t.string "video_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "user_skills", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "skill_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

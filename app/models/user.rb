@@ -4,8 +4,7 @@ class User < ApplicationRecord
     has_many :receiving_lessons, foreign_key: :receiver_id, class_name: "Lesson"
     has_many :providers, through: :receiving_lessons
 
-    has_many :user_skills
-    has_many :skills, through: :user_skills
+    has_many :skills
 
     has_many :received_msgs, foreign_key: :recipient_id, class_name: "Message"
     has_many :senders, through: :received_msgs
