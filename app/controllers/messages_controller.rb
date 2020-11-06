@@ -12,13 +12,16 @@ class MessagesController < ApplicationController
 
     def create
         @message = Message.new(message_params)
-        @message.save
-         render json: @message
+        if @message.save
+            render json: @message
+        else
+            render json: @message.errors
+        end
     end
 
     def update
         @message = Message.find(params[:id])
-        @skill.update(skill_params)
+        @message.update(message_params)
         render json: @message
     end
 
@@ -31,7 +34,7 @@ class MessagesController < ApplicationController
     private
 
     def message_params
-        params.require(:message).permit(:content, :sender_id, :recipient_id, :created_at, :updated_at)
+        params.require(:message).permit(:content, :sender_id, :recipient_id, :created_at, :updated_at, :replied)
     end
 
 end

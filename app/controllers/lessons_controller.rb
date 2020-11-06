@@ -12,8 +12,11 @@ class LessonsController < ApplicationController
 
     def create
         @lesson = Lesson.new(lesson_params)
-        @lesson.save
-        render json: @lesson
+      if @lesson.save
+           render json: @lesson
+      else
+           render json: @lesson.errors
+      end
     end
 
     def update

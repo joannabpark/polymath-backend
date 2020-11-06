@@ -12,8 +12,11 @@ class SkillsController < ApplicationController
 
     def create
         @skill = Skill.new(skill_params)
-         @skill.save
-        render json: @skill
+        if @skill.save
+             render json: @skill
+        else
+            render json: @skill.errors
+        end
     end
 
     def update
