@@ -1,24 +1,5 @@
-# README
+POLYMATH
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Skillshare app that uses a point system as the currency. Users receive a point when they share a skill or give a lesson and can use those points to learn a skill or take a lesson.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Built with React and Redux on the frontend and uses a RESTful API built with Rails on the backend.
