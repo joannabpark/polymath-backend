@@ -13,7 +13,7 @@ Lesson.destroy_all
 Comment.destroy_all 
 Message.destroy_all
 
-puts "Starting Seed"
+puts "Starting Seed!"
 
 User.create(username: "jojo", password: "123", first_name: "JoAnna", last_name: "Park", email: "joanna@gmail.com", points: 1, location: "Chicago", image_url: "https://media-exp1.licdn.com/dms/image/C4E03AQHhY1RZEx-PxA/profile-displayphoto-shrink_200_200/0?e=1609372800&v=beta&t=DyrOQAs4lk8NQCgomBbV_9tElkf4rVGdmcbL3ymqwU4")
 User.create(username: "bobo", password: "123", first_name: "Bob", last_name: "Ross", email: "bob@gmail.com", points: 1, location: "New York", image_url: "https://www.biography.com/.image/t_share/MTIwNjA4NjMzOTU5NTgxMTk2/bob-ross-9464216-1-402.jpg")
